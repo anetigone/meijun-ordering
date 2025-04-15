@@ -1,6 +1,6 @@
 package com.mo.api.dto;
 
-import com.sky.entity.SetmealDish;
+import com.mo.entity.SetmealDish;
 import lombok.Data;
 
 import java.io.Serializable;

@@ -1,6 +1,6 @@
 package com.mo.api.dto;
 
-import com.sky.entity.OrderDetail;
+import com.mo.entity.OrderDetail;
 import lombok.Data;
 
 import java.io.Serializable;
