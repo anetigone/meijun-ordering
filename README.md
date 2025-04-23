@@ -10,7 +10,7 @@ root-project/
 │   │   │   │       └── example/
 │   │   │   │           └── api/
 │   │   │   │               ├── dto/  # 数据传输对象
-│   │   │   │               │   └── UserDto.java
+│   │   │   │               │   └── UserDto.java # 样例（下同）
 │   │   │   │               └── service/  # 服务接口
 │   │   │   │                   └── UserService.java
 │   │   │   └── resources/
@@ -79,7 +79,7 @@ root-project/
     │   │   │           └── core/
     │   │   │               ├── entity/  # 实体类
     │   │   │               │   └── User.java
-    │   │   │               └── util/  # 工具类
+    │   │   │               └── common/  # 工具类
     │   │   │                   └── DateUtils.java
     │   │   └── resources/
     │   │       └── application.properties  # 模块的配置文件
@@ -88,7 +88,7 @@ root-project/
     │           └── com/
     │               └── example/
     │                   └── core/
-    │                       └── util/
+    │                       └── common/
     │                           └── DateUtilsTest.java
     └── pom.xml  # module-core 的 Maven 配置文件
 ```
