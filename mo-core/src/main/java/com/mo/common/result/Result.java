@@ -1,6 +1,8 @@
 package com.mo.common.result;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -19,13 +21,45 @@ public class Result<T> implements Serializable {
     private String msg;// 返回消息
     private  T data;// 返回数据
 
+    public static <T> Result<T> success() {
+        Result<T> result = new Result<>();
+        result.setCode(ResultCode.getSuccessCode());
+        result.setMsg(ResultCode.getErrorMsg());
+        return result;
+    }
+
     public static <T> Result<T> success(T data) {
-        //Todo
-        return null;
+        Result<T> result = new Result<>();
+        result.setCode(ResultCode.getSuccessCode());
+        result.setMsg(ResultCode.getErrorMsg());
+        result.setData(data);
+        return result;
     }
 
     public static <T> Result<T> error(){
-        //Todo
-        return null;
+        Result<T> result = new Result<>();
+        result.setCode(ResultCode.getErrorCode());
+        result.setMsg(ResultCode.getErrorMsg());
+        return result;
+    }
+}
+
+class ResultCode {
+    private static final Integer SUCCESS_CODE = 200;
+    private static final String SUCCESS_MSG = "操作成功";
+    private static final Integer ERROR_CODE = 500;
+    private static final String ERROR_MSG = "操作失败";
+
+    public static String getSuccessMsg() {
+        return SUCCESS_MSG;
+    }
+    public static Integer getSuccessCode() {
+        return SUCCESS_CODE;
+    }
+    public static String getErrorMsg() {
+        return ERROR_MSG;
+    }
+    public static Integer getErrorCode() {
+        return ERROR_CODE;
     }
 }
