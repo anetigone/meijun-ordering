@@ -1,5 +1,6 @@
 package com.mo.entity;
 
+import com.mo.common.enumeration.UserIdentity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,21 +16,27 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class User implements Serializable {
     @Serial
-    private static final long serialVersionUID = 1L;
-
-    private Long id;
+    protected static final long serialVersionUID = 1L;
+    //自增主键
+    protected Long id;
     //微信用户唯一标识
-    private String openid;
+    protected String openid;
     //姓名
-    private String name;
+    protected String name;
+    //用户名
+    protected String username;
+    //密码
+    protected String password;
+    //身份
+    protected UserIdentity identity;
+    //创建时间
+    protected LocalDateTime createTime;
+    //更新时间
+    protected LocalDateTime updateTime;
+    //状态
+    protected Integer status;
     //手机号
-    private String phone;
-    //性别 0 女 1 男
-    private String sex;
-    //身份证号
-    private String idNumber;
-    //头像
-    private String avatar;
-    //注册时间
-    private LocalDateTime createTime;
+    protected String phoneNum;
+    //性别
+    protected String gender;
 }

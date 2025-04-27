@@ -8,6 +8,7 @@ import lombok.*;
 @Getter
 @Builder
 @AllArgsConstructor
-public class Employee extends User{
-    private UserIdentity identity = UserIdentity.EMPLOYEE;
+@NoArgsConstructor
+public class Admin extends User{
+    private UserIdentity identity = UserIdentity.ADMIN;
 }
