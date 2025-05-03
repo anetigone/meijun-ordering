@@ -11,12 +11,11 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
     @Serial
-    protected static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     //自增主键
     protected Long id;
     //微信用户唯一标识
