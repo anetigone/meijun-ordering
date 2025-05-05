@@ -2,7 +2,6 @@ package com.mo.api.service;
 
 import com.mo.api.dto.AuthLoginDTO;
 import com.mo.api.dto.AuthRegisterDTO;
-import com.mo.common.result.Result;
 import com.mo.entity.User;
 
 public interface AuthService {
@@ -13,7 +12,7 @@ public interface AuthService {
      * @return 返回登录成功的用户对象。如果登录失败，则返回null或抛出异常（具体逻辑视实现而定）。
      * @throws IllegalArgumentException 如果输入参数为空或无效。
      */
-    Result<User> login(AuthLoginDTO authLoginDTO);
+    User login(AuthLoginDTO authLoginDTO);
 
-    Result<User> register(AuthRegisterDTO authRegisterDTO);
+    User register(AuthRegisterDTO authRegisterDTO);
 }
