@@ -1,11 +1,10 @@
 package com.mo.service.mapper;
 
-import com.mo.entity.Admin;
-import com.mo.entity.User;
+import com.mo.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface AdminMapper {
-    Admin getAdminByUsername(String username);
+public interface EmployeeMapper {
+    Employee getEmployeeByUsername(String username);
 }

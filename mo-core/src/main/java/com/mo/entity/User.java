@@ -1,6 +1,7 @@
 package com.mo.entity;
 
 import com.mo.common.enumeration.UserIdentity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,8 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     //自增主键
     protected Long id;
+    //唯一标识
+    protected Long uuid;
     //微信用户唯一标识
     protected String openid;
     //姓名
@@ -38,4 +41,6 @@ public class User implements Serializable {
     protected String phoneNum;
     //性别
     protected String gender;
+    @Schema(description = "jwt令牌")
+    protected String token;
 }

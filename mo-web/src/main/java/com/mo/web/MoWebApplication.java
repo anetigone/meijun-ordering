@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@ComponentScan("com.mo.service")
-@MapperScan("com.mo.service")
+@ComponentScan("com.mo.service, com.mo.common")
+@MapperScan("com.mo.service.mapper")
 @EnableTransactionManagement
 @Slf4j
 @EnableConfigurationProperties

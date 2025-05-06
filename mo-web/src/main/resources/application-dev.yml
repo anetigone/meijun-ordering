@@ -4,7 +4,6 @@ spring:
     url: jdbc::mysql://localhost:3306/mo-db
     username: root
     password: password
-
 # springdoc-openapi项目配置
 springdoc:
   swagger-ui:
@@ -22,7 +21,9 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
-
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+# mo项目配置
 mo:
   jwt:
     admin-secret-key: ADMIN-SECRET-KEY
@@ -31,3 +32,9 @@ mo:
     customer-secret-key: CUSTOMER-SECRET-KEY
     customer-ttl: 3600000
     customer-token-name: customerToken
+    merchant-secret-key: MERCHANT-SECRET-KEY
+    merchant-ttl: 3600000
+    merchant-token-name: merchantToken
+    employee-secret-key: EMPLOYEE-SECRET-KEY
+    employee-ttl: 3600000
+    employee-token-name: employeeToken
