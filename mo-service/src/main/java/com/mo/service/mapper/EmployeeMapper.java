@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface EmployeeMapper {
     Employee getEmployeeByUsername(String username);
+    Employee getEmployeeByUuid(String uuid);
 }

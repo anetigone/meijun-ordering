@@ -5,6 +5,7 @@ import com.mo.api.dto.AuthRegisterDTO;
 import com.mo.api.service.AuthService;
 import com.mo.common.constant.MessageConstant;
 import com.mo.common.exception.AccountNotFoundException;
+import com.mo.common.exception.PasswordErrorException;
 import com.mo.entity.Customer;
 import com.mo.entity.User;
 import com.mo.service.mapper.AdminMapper;
@@ -26,6 +27,7 @@ public class AuthServiceImpl implements AuthService {
     private MerchantMapper merchantMapper;
     @Autowired
     private EmployeeMapper employeeMapper;
+
     @Override
     public User login(AuthLoginDTO authLoginDTO){
         User user = adminMapper.getAdminByUsername(authLoginDTO.getUsername());
@@ -33,6 +35,8 @@ public class AuthServiceImpl implements AuthService {
         if(user == null) user = employeeMapper.getEmployeeByUsername(authLoginDTO.getUsername());
         if(user == null) user = customerMapper.getCustomerByUsername(authLoginDTO.getUsername());
         if(user == null) throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
+
+        if(!user.getPassword().equals(authLoginDTO.getPassword())) throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
 
         return user;
     }

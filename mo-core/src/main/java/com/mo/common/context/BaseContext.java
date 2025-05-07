@@ -2,13 +2,13 @@ package com.mo.common.context;
 
 public class BaseContext {
 
-    private static ThreadLocal<Long> threadLocal = new ThreadLocal<Long>();
+    private static ThreadLocal<String> threadLocal = new ThreadLocal<String>();
 
-    public static void setCurrentId(Long id) {
+    public static void setCurrentId(String id) {
         threadLocal.set(id);
     }
 
-    public static Long getCurrentId() {
+    public static String getCurrentId() {
         return threadLocal.get();
     }
 

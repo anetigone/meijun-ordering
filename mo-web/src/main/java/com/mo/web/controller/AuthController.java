@@ -10,6 +10,8 @@ import com.mo.common.properties.JwtProperties;
 import com.mo.common.result.Result;
 import com.mo.common.utils.JwtUtil;
 import com.mo.entity.User;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -25,6 +27,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/auth")
+@Tag(name = "账号管理")
 public class AuthController {
     @Autowired
     private AuthService authService;
@@ -33,6 +36,9 @@ public class AuthController {
 
     @PostMapping("/login")
     @Tag(name = "登录")
+    @Parameters({
+            @Parameter(name = "authLoginDTO", description = "登录信息", required = true)
+    })
     public Result<User> login(@RequestBody AuthLoginDTO authLoginDTO) {
         log.info("login:{}", authLoginDTO);
 

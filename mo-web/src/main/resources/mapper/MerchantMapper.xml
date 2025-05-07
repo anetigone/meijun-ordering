@@ -5,4 +5,7 @@
     <select id="getMerchantByUsername" resultType="com.mo.entity.Merchant">
         select * from merchants where username = #{username}
     </select>
+    <select id="getMerchantByUuid" resultType="com.mo.entity.Merchant">
+        select * from merchants where uuid = #{uuid}
+    </select>
 </mapper>

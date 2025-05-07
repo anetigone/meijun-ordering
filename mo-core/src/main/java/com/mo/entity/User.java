@@ -20,7 +20,7 @@ public class User implements Serializable {
     //自增主键
     protected Long id;
     //唯一标识
-    protected Long uuid;
+    protected String uuid;
     //微信用户唯一标识
     protected String openid;
     //姓名

@@ -5,4 +5,7 @@
     <select id="getAdminByUsername" resultType="com.mo.entity.Admin">
         select * from admins where username = #{username}
     </select>
+    <select id="getAdminByUuid" resultType="com.mo.entity.Admin">
+        select * from admins where uuid = #{uuid}
+    </select>
 </mapper>

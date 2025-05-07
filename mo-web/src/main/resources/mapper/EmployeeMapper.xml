@@ -5,4 +5,7 @@
     <select id="getEmployeeByUsername" resultType="com.mo.entity.Employee">
         select * from employees where username = #{username}
     </select>
+    <select id="getEmployeeByUuid" resultType="com.mo.entity.Employee">
+        select * from employees where uuid = #{uuid}
+    </select>
 </mapper>

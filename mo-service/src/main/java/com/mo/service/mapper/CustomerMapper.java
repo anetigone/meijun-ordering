@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface CustomerMapper {
     Customer getCustomerByUsername(String username);
+    Customer getCustomerByUuid(String uuid);
 }

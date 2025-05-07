@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface MerchantMapper {
     Merchant getMerchantByUsername(String username);
+    Merchant getMerchantByUuid(String uuid);
 }

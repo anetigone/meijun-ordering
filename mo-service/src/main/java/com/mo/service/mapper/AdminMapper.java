@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface AdminMapper {
     Admin getAdminByUsername(String username);
+    Admin getAdminByUuid(String uuid);
 }
