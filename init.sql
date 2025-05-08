@@ -10,7 +10,9 @@ CREATE TABLE customers (
     username VARCHAR(30),
     password VARCHAR(255) NOT NULL,
     avatar_url VARCHAR(255),
-    balance DECIMAL(10, 2) DEFAULT 0.00
+    balance DECIMAL(10, 2) DEFAULT 0.00,
+    createTime TIMESTAMP,
+    updateTime TIMESTAMP
 );
 
 -- 创建商家表
@@ -20,7 +22,9 @@ CREATE TABLE merchants (
     username VARCHAR(50),
     password VARCHAR(255) NOT NULL,
     number VARCHAR(20),
-    address VARCHAR(255)
+    address VARCHAR(255),
+    createTime TIMESTAMP,
+    updateTime TIMESTAMP
 );
 
 -- 创建管理员表
@@ -29,7 +33,9 @@ CREATE TABLE admins (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    role ENUM('root', 'admin') DEFAULT 'admin'
+    role ENUM('root', 'admin') DEFAULT 'admin',
+    createTime TIMESTAMP,
+    updateTime TIMESTAMP
 );
 
 -- 创建店员表
@@ -38,6 +44,8 @@ CREATE TABLE employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50),
     password VARCHAR(255) NOT NULL,
+    createTime TIMESTAMP,
+    updateTime TIMESTAMP,
     merchant_id INT,
     FOREIGN KEY (merchant_id) REFERENCES merchants(id) ON DELETE CASCADE
 );

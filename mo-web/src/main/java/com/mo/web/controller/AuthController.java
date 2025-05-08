@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.mo.api.service.AuthService;
 
+import javax.security.auth.login.LoginException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,7 +71,10 @@ public class AuthController {
 
     @PostMapping("/register")
     public Result<User> register(@RequestBody AuthRegisterDTO authRegisterDTO) {
+        log.info("register:{}", authRegisterDTO);
+
         User user = authService.register(authRegisterDTO);
+
         return Result.success(user);
     }
 

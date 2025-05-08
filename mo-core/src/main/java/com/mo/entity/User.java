@@ -3,15 +3,16 @@ package com.mo.entity;
 import com.mo.common.enumeration.UserIdentity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
@@ -41,6 +42,8 @@ public class User implements Serializable {
     protected String phoneNum;
     //性别
     protected String gender;
+    @Schema(description = "头像")
+    protected String avatar_url;
     @Schema(description = "jwt令牌")
     protected String token;
 }

@@ -9,4 +9,6 @@ import org.apache.ibatis.annotations.Select;
 public interface CustomerMapper {
     Customer getCustomerByUsername(String username);
     Customer getCustomerByUuid(String uuid);
+
+    void addCustomer(Customer customer);
 }

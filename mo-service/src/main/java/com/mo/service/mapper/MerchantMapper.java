@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Select;
 public interface MerchantMapper {
     Merchant getMerchantByUsername(String username);
     Merchant getMerchantByUuid(String uuid);
+
+    void addMerchant(Merchant merchant);
 }

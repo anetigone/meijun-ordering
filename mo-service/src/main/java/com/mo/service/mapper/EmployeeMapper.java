@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Select;
 public interface EmployeeMapper {
     Employee getEmployeeByUsername(String username);
     Employee getEmployeeByUuid(String uuid);
+
+    void addEmployee(Employee employee);
 }
