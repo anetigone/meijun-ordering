@@ -14,7 +14,7 @@ root-project/
 │   │   │   │               └── service/  # 服务接口
 │   │   │   │                   └── UserService.java
 │   │   │   └── resources/
-│   │   │       └── application.properties  # 模块的配置文件
+│   │   │       └── application.yml  # 模块的配置文件
 │   │   └── test/
 │   │       └── java/
 │   │           └── com/
@@ -32,10 +32,10 @@ root-project/
 │   │   │   │           └── service/
 │   │   │   │               ├── impl/  # 服务实现类
 │   │   │   │               │   └── UserServiceImpl.java
-│   │   │   │               └── repository/  # 数据访问层
-│   │   │   │                   └── UserRepository.java
+│   │   │   │               └── mapper/  # 数据访问层
+│   │   │   │                   └── UserMapper.java
 │   │   │   └── resources/
-│   │   │       └── application.properties  # 模块的配置文件
+│   │   │       └── application.yml  # 模块的配置文件
 │   │   └── test/
 │   │       └── java/
 │   │           └── com/
@@ -53,15 +53,16 @@ root-project/
 │   │   │   │           └── web/
 │   │   │   │               ├── controller/  # 控制器层
 │   │   │   │               │   └── UserController.java
-│   │   │   │               └── config/  # 配置类
-│   │   │   │                   └── WebConfig.java
+│   │   │   │               ├── config/  # 配置类
+│   │   │   │               │     └── WebConfig.java
+│   │   │   │               └── WebApplication.java #启动器 
 │   │   │   └── resources/
 │   │   │       ├── static/  # 静态资源
 │   │   │       │   └── css/
 │   │   │       │       └── style.css
 │   │   │       ├── templates/  # 模板文件
 │   │   │       │   └── index.html
-│   │   │       └── application.properties  # 模块的配置文件
+│   │   │       └── application.yml  # 模块的配置文件
 │   │   └── test/
 │   │       └── java/
 │   │           └── com/
@@ -82,7 +83,7 @@ root-project/
     │   │   │               └── common/  # 工具类
     │   │   │                   └── DateUtils.java
     │   │   └── resources/
-    │   │       └── application.properties  # 模块的配置文件
+    │   │       └── application.yml  # 模块的配置文件
     │   └── test/
     │       └── java/
     │           └── com/

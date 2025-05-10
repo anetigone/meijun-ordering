@@ -6,9 +6,8 @@ import com.mo.api.service.AuthService;
 import com.mo.common.constant.MessageConstant;
 import com.mo.common.enumeration.UserIdentity;
 import com.mo.common.exception.AccountNotFoundException;
-import com.mo.common.exception.MerchantNotExist;
 import com.mo.common.exception.PasswordErrorException;
-import com.mo.common.exception.RegisterFailed;
+import com.mo.common.exception.RegisterFailedException;
 import com.mo.entity.Customer;
 import com.mo.entity.Employee;
 import com.mo.entity.Merchant;
@@ -18,7 +17,6 @@ import com.mo.service.mapper.CustomerMapper;
 import com.mo.service.mapper.EmployeeMapper;
 import com.mo.service.mapper.MerchantMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,10 +61,10 @@ public class AuthServiceImpl implements AuthService {
                 .build();
 
         switch (identity){
-            case ADMIN -> throw new RegisterFailed("暂不支持管理员注册");
+            case ADMIN -> throw new RegisterFailedException("暂不支持管理员注册");
             case MERCHANT -> {
                 Merchant mer = merchantMapper.getMerchantByUsername(authRegisterDTO.getUsername());
-                if(mer != null) throw new RegisterFailed("商家已存在");
+                if(mer != null) throw new RegisterFailedException("商家已存在");
 
                 Merchant merchant = Merchant.fromUser(user);
                 merchant.setAddress(authRegisterDTO.getAddress());
@@ -77,11 +75,11 @@ public class AuthServiceImpl implements AuthService {
             }
             case EMPLOYEE -> {
                 Employee emp = employeeMapper.getEmployeeByUsername(authRegisterDTO.getUsername());
-                if(emp != null) throw new RegisterFailed("员工已存在");
+                if(emp != null) throw new RegisterFailedException("员工已存在");
 
                 Employee employee = Employee.fromUser(user);
                 Merchant merchant = merchantMapper.getMerchantByUsername(authRegisterDTO.getMerchantUsername());
-                if(merchant == null) throw new RegisterFailed("没有对应商家");
+                if(merchant == null) throw new RegisterFailedException("没有对应商家");
                 Long id = merchant.getId();
                 employee.setMerchant_id(id);
                 employeeMapper.addEmployee(employee);
@@ -91,7 +89,7 @@ public class AuthServiceImpl implements AuthService {
             }
             case CUSTOMER -> {
                 Customer cus = customerMapper.getCustomerByUsername(authRegisterDTO.getUsername());
-                if(cus != null) throw new RegisterFailed("用户已存在");
+                if(cus != null) throw new RegisterFailedException("用户已存在");
 
                 Customer customer = Customer.fromUser(user);
                 customer.setBalance(0.0);
@@ -100,7 +98,7 @@ public class AuthServiceImpl implements AuthService {
 
                 return customer;
             }
-            default -> throw new RegisterFailed("未知身份");
+            default -> throw new RegisterFailedException("未知身份");
         }
     }
 }
