@@ -31,7 +31,7 @@ public class Result<T> implements Serializable {
     public static <T> Result<T> success(T data) {
         Result<T> result = new Result<>();
         result.setCode(ResultCode.getSuccessCode());
-        result.setMsg(ResultCode.getErrorMsg());
+        result.setMsg(ResultCode.getSuccessMsg());
         result.setData(data);
         return result;
     }
@@ -46,9 +46,9 @@ public class Result<T> implements Serializable {
 
 class ResultCode {
     private static final Integer SUCCESS_CODE = 200;
-    private static final String SUCCESS_MSG = "操作成功";
-    private static final Integer ERROR_CODE = 500;
-    private static final String ERROR_MSG = "操作失败";
+    private static final String SUCCESS_MSG = "OK";
+    private static final Integer ERROR_CODE = 400;
+    private static final String ERROR_MSG = "NO";
 
     public static String getSuccessMsg() {
         return SUCCESS_MSG;

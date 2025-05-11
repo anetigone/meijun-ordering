@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mo.service.mapper.CustomerMapper">
+    <select id="getCustomerByUsername" resultType="com.mo.entity.Customer">
+        select * from customers where username = #{username}
+    </select>
+    <select id="getCustomerByUuid" resultType="com.mo.entity.Customer">
+        select * from customers where uuid = #{uuid}
+    </select>
+    <insert id="addCustomer">
+        insert into customers (wechat_openid,username,password,avatar_url,balance,createTime,updateTime)
+        values (#{openid},#{username},#{password},#{avatar_url},0 ,#{createTime},#{updateTime})
+    </insert>
+</mapper>

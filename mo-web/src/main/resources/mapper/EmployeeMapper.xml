@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mo.service.mapper.EmployeeMapper">
+    <select id="getEmployeeByUsername" resultType="com.mo.entity.Employee">
+        select * from employees where username = #{username}
+    </select>
+    <select id="getEmployeeByUuid" resultType="com.mo.entity.Employee">
+        select * from employees where uuid = #{uuid}
+    </select>
+    <insert id="addEmployee">
+        insert into employees (username,password,createTime,updateTime,merchant_id)
+        values (#{username},#{password},#{createTime},#{updateTime},#{merchant_id})
+    </insert>
+</mapper>

@@ -13,17 +13,17 @@ import java.io.Serial;
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee extends User{
+public class Merchant extends User{
     @Serial
     private static final long serialVersionUID = 1L;
-    private UserIdentity identity = UserIdentity.EMPLOYEE;
-    private Long merchant_id;
+    private UserIdentity identity = UserIdentity.MERCHANT;
+    private String address;
 
-    public static Employee fromUser(User user){
-        Employee employee = new Employee();
-        BeanUtils.copyProperties(user, employee);
-        employee.setIdentity(UserIdentity.EMPLOYEE);
+    public static Merchant fromUser(User user){
+        Merchant merchant = new Merchant();
+        BeanUtils.copyProperties(user,merchant);
+        merchant.setIdentity(UserIdentity.MERCHANT);
 
-        return employee;
+        return merchant;
     }
 }
